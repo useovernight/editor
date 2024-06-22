@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Default",
+  "compilerOptions": {
+    // Type Checking
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+
+    // Modules
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true,
+
+    // Emit
+    "declaration": true,
+    "declarationMap": true,
+
+    // JavaScript Support
+    "allowJs": false,
+
+    // Interop Constraints
+    "esModuleInterop": true,
+    "isolatedModules": true,
+
+    // Language and Environment
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "moduleDetection": "force",
+    "target": "ES2022",
+
+    // Projects
+    "incremental": true,
+
+    // Completeness
+    "skipLibCheck": true
+  }
+}

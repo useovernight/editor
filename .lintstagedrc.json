@@ -1,0 +1,4 @@
+{
+  "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": ["biome check --apply"],
+  "*.{js,ts,cjs,mjs,jsx,tsx,css}": ["bun scripts/check-copyright-header.ts"]
+}
