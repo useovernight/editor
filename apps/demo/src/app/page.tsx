@@ -10,7 +10,9 @@ const Home = () => (
   <div className="flex h-screen w-screen items-center justify-center">
     <Floating>
       <Anchor />
-      <FloatingElement className="bg-red-500 p-2">Floating Element</FloatingElement>
+      <FloatingElement placement="bottom" className="bg-red-500 p-2">
+        Floating Element
+      </FloatingElement>
     </Floating>
   </div>
 )
