@@ -7,7 +7,12 @@
     "build": "tsc --build && tsc-alias"
   },
   "exports": {
-    "./components/*": "./dist/components/*.js"
+    "./components/*": "./dist/components/*.js",
+    "./constants/*": "./dist/constants/*.js",
+    "./contexts/*": "./dist/contexts/*.js",
+    "./hooks/*": "./dist/hooks/*.js",
+    "./middlewares/*": "./dist/middlewares/*.js",
+    "./types/*": "./dist/types/*.js"
   },
   "dependencies": {
     "react": "^18"
