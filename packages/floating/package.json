@@ -11,6 +11,7 @@
     "./constants/*": "./dist/constants/*.js",
     "./contexts/*": "./dist/contexts/*.js",
     "./hooks/*": "./dist/hooks/*.js",
+    "./middlewares/*": "./dist/middlewares/*.js",
     "./types/*": "./dist/types/*.js"
   },
   "dependencies": {
