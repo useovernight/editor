@@ -2,11 +2,16 @@
  * Copyright (c) Overnight
  */
 
-import { Hello } from '@useovernight/floating/components/hello'
+import { Anchor } from '@/components/anchor'
+import { Floating } from '@useovernight/floating/components/floating'
+import { FloatingElement } from '@useovernight/floating/components/floating-element'
 
 const Home = () => (
-  <div className="m-6">
-    <Hello />
+  <div className="flex h-screen w-screen items-center justify-center">
+    <Floating>
+      <Anchor />
+      <FloatingElement className="bg-red-500 p-2">Floating Element</FloatingElement>
+    </Floating>
   </div>
 )
 
