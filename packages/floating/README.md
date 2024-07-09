@@ -28,13 +28,13 @@ const Anchor = () => {
   const anchorElementRef = useRef<HTMLDivElement | null>(null)
   const anchorBoundary = useElementBoundary(anchorElementRef)
 
-  const { toggle } = useFloating(anchorBoundary)
+  const { toggle } = useFloating()
 
   return (
     <div
       ref={anchorElementRef}
       className="cursor-pointer select-none bg-blue-300 p-2"
-      onClick={toggle}
+      onClick={() => toggle(anchorBoundary)}
     >
       Anchor
     </div>
@@ -48,8 +48,6 @@ Each `<FloatingElement>` requires a mandatory placement property, and the displa
 
 ```tsx
 const Home = () => {
-  const windowBoundary = useWindowBoundary()
-
   const middlewares = [
     fadeIn(180),
     offset({
@@ -59,7 +57,7 @@ const Home = () => {
 
   return (
     <main className="flex h-screen w-screen items-center justify-center">
-      <Floating windowBoundary={windowBoundary}>
+      <Floating>
         <Anchor />
         <FloatingElement className="bg-red-400 p-2" placement="bottom" middlewares={middlewares}>
           Hello

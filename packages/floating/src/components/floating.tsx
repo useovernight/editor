@@ -7,7 +7,7 @@
 import { FloatingContext } from '@/contexts/floating.context'
 import type { Boundary } from '@/types/boundary.type'
 import type { FloatingState } from '@/types/floating-state.type'
-import { type PropsWithChildren, useState } from 'react'
+import { type PropsWithChildren, useCallback, useState } from 'react'
 
 interface FloatingProps extends PropsWithChildren {}
 
@@ -22,31 +22,42 @@ const Floating = ({ children }: FloatingProps) => {
     }
   })
 
-  const display = (anchorBoundary: Boundary) =>
-    setFloatingState({
-      ...floatingState,
-      anchorBoundary,
-      isVisible: true
-    })
-  const hide = () =>
-    setFloatingState({
-      ...floatingState,
-      isVisible: false
-    })
-  const toggle = (anchorBoundary: Boundary) =>
-    setFloatingState(({ isVisible }) => ({
-      ...floatingState,
-      anchorBoundary,
-      isVisible: !isVisible
-    }))
+  const toggle = useCallback(
+    (anchorBoundary: Boundary) =>
+      setFloatingState(({ isVisible, ...currentFloatingState }) => ({
+        ...currentFloatingState,
+        anchorBoundary,
+        isVisible: !isVisible
+      })),
+    []
+  )
+
+  const display = useCallback(
+    (anchorBoundary: Boundary) =>
+      setFloatingState((currentFloatingState) => ({
+        ...currentFloatingState,
+        anchorBoundary,
+        isVisible: true
+      })),
+    []
+  )
+
+  const hide = useCallback(
+    () =>
+      setFloatingState((currentFloatingState) => ({
+        ...currentFloatingState,
+        isVisible: false
+      })),
+    []
+  )
 
   return (
     <FloatingContext.Provider
       value={{
         floatingState,
+        toggle,
         display,
-        hide,
-        toggle
+        hide
       }}
     >
       {children}
