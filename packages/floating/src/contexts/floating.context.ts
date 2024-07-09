@@ -8,9 +8,9 @@ import { createContext } from 'react'
 
 interface FloatingContextValue {
   floatingState: FloatingState
+  toggle: (anchorBoundary: Boundary) => void
   display: (anchorBoundary: Boundary) => void
   hide: () => void
-  toggle: (anchorBoundary: Boundary) => void
 }
 
 const FloatingContext = createContext<FloatingContextValue>({} as FloatingContextValue)

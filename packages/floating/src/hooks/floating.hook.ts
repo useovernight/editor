@@ -3,7 +3,6 @@
  */
 
 import { FloatingContext } from '@/contexts/floating.context'
-import type { Boundary } from '@/types/boundary.type'
 import { useContext } from 'react'
 
 const useFloating = () => {
@@ -14,8 +13,8 @@ const useFloating = () => {
   }
 
   return {
-    toggle: (anchorBoundary: Boundary) => floatingContext.toggle(anchorBoundary),
-    display: (anchorBoundary: Boundary) => floatingContext.display(anchorBoundary),
+    toggle: floatingContext.toggle,
+    display: floatingContext.display,
     hide: floatingContext.hide
   }
 }
