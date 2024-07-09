@@ -6,7 +6,7 @@ import { FloatingContext } from '@/contexts/floating.context'
 import type { Boundary } from '@/types/boundary.type'
 import { useContext } from 'react'
 
-const useFloating = (anchorBoundary: Boundary) => {
+const useFloating = () => {
   const floatingContext = useContext(FloatingContext)
 
   if (!floatingContext) {
@@ -14,9 +14,9 @@ const useFloating = (anchorBoundary: Boundary) => {
   }
 
   return {
-    display: () => floatingContext.display(anchorBoundary),
-    hide: floatingContext.hide,
-    toggle: () => floatingContext.toggle(anchorBoundary)
+    toggle: (anchorBoundary: Boundary) => floatingContext.toggle(anchorBoundary),
+    display: (anchorBoundary: Boundary) => floatingContext.display(anchorBoundary),
+    hide: floatingContext.hide
   }
 }
 

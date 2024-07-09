@@ -12,14 +12,14 @@ const Anchor = () => {
   const anchorElementRef = useRef<HTMLDivElement | null>(null)
   const anchorBoundary = useElementBoundary(anchorElementRef)
 
-  const { toggle } = useFloating(anchorBoundary)
+  const { toggle } = useFloating()
 
   return (
     <div
       ref={anchorElementRef}
       className="cursor-pointer select-none bg-blue-300 p-2"
-      onClick={toggle}
-      onKeyDown={toggle}
+      onClick={() => toggle(anchorBoundary)}
+      onKeyDown={() => toggle(anchorBoundary)}
     >
       Anchor
     </div>
