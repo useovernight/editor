@@ -12,16 +12,16 @@ const Anchor = () => {
   const anchorElementRef = useRef<HTMLDivElement | null>(null)
   const anchorBoundary = useElementBoundary(anchorElementRef)
 
-  const { toggle } = useFloating()
+  const { display, hide } = useFloating()
 
   return (
     <div
       ref={anchorElementRef}
-      className="cursor-pointer select-none bg-blue-300 p-2"
-      onClick={() => toggle(anchorBoundary)}
-      onKeyDown={() => toggle(anchorBoundary)}
+      className="flex h-52 w-80 select-none items-center justify-center rounded-md border border-input bg-background text-primary"
+      onMouseEnter={() => display(anchorBoundary)}
+      onMouseLeave={() => hide()}
     >
-      Anchor
+      Hover over me
     </div>
   )
 }
