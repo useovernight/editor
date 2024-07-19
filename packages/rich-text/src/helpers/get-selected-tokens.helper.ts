@@ -11,7 +11,7 @@ const getSelectedTokens = (snapshots: readonly RichTextAreaSnapshot[]) =>
         return undefined
       }
 
-      return tokens.slice(selection.startIndex, selection.endIndex + 1)
+      return tokens.slice(selection.start.index, selection.end.index + 1)
     })
     .filter((snapshot) => snapshot !== undefined)
 

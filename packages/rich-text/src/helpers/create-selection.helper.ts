@@ -2,14 +2,15 @@
  * Copyright (c) Overnight
  */
 
+import { Cursor } from '@/cursor'
 import { Selection } from '@/selection'
 import type { TokenWithId } from '@/types/object.type'
 
-const getStartIndexAndOffset = (leaf: Element, range: Range): [number, number] => {
+const getStartIndexAndOffset = (leaf: Element, range: Range) => {
   const hasStartMarker = leaf.contains(range.startContainer)
 
   if (!hasStartMarker) {
-    return [0, 0]
+    return new Cursor(0, 0)
   }
 
   const startMarkerElement = range.startContainer.parentElement
@@ -25,21 +26,21 @@ const getStartIndexAndOffset = (leaf: Element, range: Range): [number, number] =
     throw new Error('Start element is not a first level child of the leaf')
   }
 
-  return [startTokenIndex, range.startOffset]
+  return new Cursor(startTokenIndex, range.startOffset)
 }
 
-const getEndIndexAndOffset = (leaf: Element, range: Range, tokens: readonly TokenWithId[]): [number, number] => {
+const getEndIndexAndOffset = (leaf: Element, range: Range, tokens: readonly TokenWithId[]) => {
   const hasEndMarker = leaf.contains(range.endContainer)
 
   if (!hasEndMarker) {
     const lastTokenWithId = tokens.at(-1)
 
     if (lastTokenWithId === undefined) {
-      return [0, 0]
+      return new Cursor(0, 0)
     }
 
     const [, lastToken] = lastTokenWithId
-    return [tokens.length - 1, lastToken.content.length]
+    return new Cursor(tokens.length - 1, lastToken.content.length)
   }
 
   const endMarkerElement = range.endContainer.parentElement
@@ -55,7 +56,7 @@ const getEndIndexAndOffset = (leaf: Element, range: Range, tokens: readonly Toke
     throw new Error('End element is not a first level child of the leaf')
   }
 
-  return [endTokenIndex, range.endOffset]
+  return new Cursor(endTokenIndex, range.endOffset)
 }
 
 const createSelection = (leaf: Element, range: Range, tokens: readonly TokenWithId[]) => {
@@ -63,10 +64,10 @@ const createSelection = (leaf: Element, range: Range, tokens: readonly TokenWith
     return undefined
   }
 
-  const [startIndex, startOffset] = getStartIndexAndOffset(leaf, range)
-  const [endIndex, endOffset] = getEndIndexAndOffset(leaf, range, tokens)
+  const startCursor = getStartIndexAndOffset(leaf, range)
+  const endCursor = getEndIndexAndOffset(leaf, range, tokens)
 
-  return new Selection(startIndex, startOffset, endIndex, endOffset)
+  return new Selection(startCursor, endCursor)
 }
 
 export { createSelection }

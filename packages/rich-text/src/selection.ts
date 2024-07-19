@@ -2,12 +2,12 @@
  * Copyright (c) Overnight
  */
 
+import type { Cursor } from '@/cursor'
+
 class Selection {
   constructor(
-    public readonly startIndex: number,
-    public readonly startOffset: number,
-    public readonly endIndex: number,
-    public readonly endOffset: number
+    public readonly start: Cursor,
+    public readonly end: Cursor
   ) {}
 }
 
