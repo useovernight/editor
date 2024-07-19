@@ -8,8 +8,10 @@
   },
   "exports": {
     "./components/*": "./dist/components/*.js",
+    "./contexts/*": "./dist/contexts/*.js",
     "./enums/*": "./dist/enums/*.js",
     "./types/*": "./dist/types/*.js",
+    "./selection": "./dist/selection.js",
     "./token": "./dist/token.js"
   },
   "dependencies": {
