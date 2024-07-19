@@ -4,11 +4,10 @@
 
 enum TokenStyle {
   Nothing = 0,
-  Bold = 1,
-  Italic = 2,
-  Underline = 4,
-  Strike = 8,
-  All = TokenStyle.Bold | TokenStyle.Italic | TokenStyle.Underline | TokenStyle.Strike
+  Bold = 1 << 0,
+  Italic = 1 << 1,
+  Underline = 1 << 2,
+  Strike = 1 << 3
 }
 
 export { TokenStyle }
