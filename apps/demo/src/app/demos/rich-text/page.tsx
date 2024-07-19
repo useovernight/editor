@@ -4,6 +4,7 @@
 
 'use client'
 
+import { Toolbar } from '@/app/demos/rich-text/components/toolbar'
 import { RichTextArea } from '@useovernight/rich-text/components/rich-text-area'
 import { RichTextContent } from '@useovernight/rich-text/components/rich-text-content'
 import { RichTextEditor } from '@useovernight/rich-text/components/rich-text-editor'
@@ -35,6 +36,7 @@ const RichTextDemoPage = () => {
   return (
     <main className="m-8">
       <RichTextEditor className="flex flex-col space-y-3">
+        <Toolbar />
         <RichTextContent className="flex cursor-default flex-col space-y-2 outline-none">
           <RichTextArea
             className="min-h-8 cursor-text rounded border border-slate-200 bg-white px-2 py-1 text-base"
