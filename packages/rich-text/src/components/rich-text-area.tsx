@@ -8,17 +8,18 @@ import { createSelection } from '@/helpers/create-selection.helper'
 import { getTokenCssProperties } from '@/helpers/get-token-css-properties.helper'
 import { useComposeRef } from '@/hooks/internal/compose-ref.hook'
 import { useRegisterTextAreaActions } from '@/hooks/internal/register-text-area-actions.hook'
-import type { TokenWithId } from '@/types/object.type'
+import type { LeafId, TokenWithId } from '@/types/object.type'
 import { type BaseHTMLAttributes, forwardRef, useCallback } from 'react'
 
 interface RichTextAreaProps extends Omit<BaseHTMLAttributes<HTMLDivElement>, 'children'> {
+  id: LeafId
   tokens: readonly TokenWithId[]
 }
 
-const RichTextArea = forwardRef<HTMLDivElement, RichTextAreaProps>(({ tokens, ...props }, externalRef) => {
+const RichTextArea = forwardRef<HTMLDivElement, RichTextAreaProps>(({ id, tokens, ...props }, externalRef) => {
   const ref = useComposeRef(externalRef)
 
-  useRegisterTextAreaActions({
+  useRegisterTextAreaActions(id, {
     createSnapshot: useCallback(
       ({ range }) => {
         const canSelectionBeCreated = range !== undefined && ref.current !== null

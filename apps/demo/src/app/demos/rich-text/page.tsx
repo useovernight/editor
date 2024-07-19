@@ -39,14 +39,17 @@ const RichTextDemoPage = () => {
         <Toolbar />
         <RichTextContent className="flex cursor-default flex-col space-y-2 outline-none">
           <RichTextArea
+            id="1"
             className="min-h-8 cursor-text rounded border border-slate-200 bg-white px-2 py-1 text-base"
             tokens={line1}
           />
           <RichTextArea
+            id="2"
             className="min-h-8 cursor-text rounded border border-slate-200 bg-white px-2 py-1 text-base"
             tokens={line2}
           />
           <RichTextArea
+            id="3"
             className="min-h-8 cursor-text rounded border border-slate-200 bg-white px-2 py-1 text-base"
             tokens={line3}
           />

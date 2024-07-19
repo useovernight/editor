@@ -4,7 +4,9 @@
 
 import type { Token } from '@/token'
 
+type LeafId = string
 type TokenId = string
+
 type TokenWithId = [TokenId, Token]
 
-export type { TokenId, TokenWithId }
+export type { LeafId, TokenId, TokenWithId }
