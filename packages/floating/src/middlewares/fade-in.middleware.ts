@@ -5,18 +5,11 @@
 import type { Middleware } from '@/types/middleware.type'
 
 const fadeIn =
-  (duration: number): Middleware =>
-  ({ styles }) => {
-    if (duration <= 0) {
-      return {}
+  (): Middleware =>
+  ({ isVisible }) => ({
+    style: {
+      opacity: isVisible ? '1' : '0'
     }
-
-    return {
-      styles: {
-        ...styles,
-        transition: `opacity ${duration}ms ease-out`
-      }
-    }
-  }
+  })
 
 export { fadeIn }

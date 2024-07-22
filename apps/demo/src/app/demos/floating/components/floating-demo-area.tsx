@@ -7,6 +7,7 @@
 import type { FloatingDemoSettingsFormSchema } from '@/schemas/floating-demo-settings-form.schema'
 import { Floating } from '@useovernight/floating/components/floating'
 import { FloatingElement } from '@useovernight/floating/components/floating-element'
+import { animate } from '@useovernight/floating/middlewares/animate.middleware'
 import { fadeIn } from '@useovernight/floating/middlewares/fade-in.middleware'
 import { offset } from '@useovernight/floating/middlewares/offset.middleware'
 import type { UseFormReturn } from 'react-hook-form'
@@ -17,7 +18,8 @@ interface FloatingDemoAreaProps {
 }
 
 const middlewares = [
-  fadeIn(280),
+  fadeIn(),
+  animate(180),
   offset({
     mainAxis: 16
   })
