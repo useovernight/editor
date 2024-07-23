@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "name": "@useovernight/tooltip",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "concurrently \"tsc --watch\" \"tsc-alias --watch\"",
+    "build": "tsc --build && tsc-alias"
+  },
+  "exports": {
+    "./components/*": "./dist/components/*.js"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.1.0",
+    "@useovernight/floating": "*",
+    "react": "^18"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@useovernight/typescript-config": "*",
+    "concurrently": "^8.2.2",
+    "tsc-alias": "^1.8.10",
+    "typescript": "^5"
+  }
+}
