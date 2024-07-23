@@ -3,19 +3,20 @@
  */
 
 import type { Placement } from '@/types/placement.type'
-import type { CSSProperties } from 'react'
+import type { StyleProperties } from '@/types/style-properties.type'
 
 interface MiddlewareState {
   x: number
   y: number
+  isVisible: boolean
   placement: Placement
-  styles: CSSProperties
+  style: StyleProperties
 }
 
 interface MiddlewareResult {
   x: number
   y: number
-  styles: CSSProperties
+  style: StyleProperties
 }
 
 type Middleware = (state: MiddlewareState) => Partial<MiddlewareResult>

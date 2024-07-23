@@ -4,12 +4,12 @@
 
 import type { Middleware } from '@/types/middleware.type'
 
-const fadeIn =
-  (): Middleware =>
+const zoomIn =
+  (value = 0.8): Middleware =>
   ({ isVisible }) => ({
     style: {
-      opacity: isVisible ? '1' : '0'
+      transform: [`scale(${isVisible ? '1' : value})`]
     }
   })
 
-export { fadeIn }
+export { zoomIn }
