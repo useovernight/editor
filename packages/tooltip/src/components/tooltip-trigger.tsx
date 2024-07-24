@@ -4,6 +4,7 @@
 
 'use client'
 
+import { delayDuration, skipDelayDuration } from '@/constants/delays.const'
 import { useComposeRef } from '@/hooks/internal/compose-ref.hook'
 import { useDelayWithSkip } from '@/hooks/internal/delay-with-skip.hook'
 import { Slot } from '@radix-ui/react-slot'
@@ -26,8 +27,8 @@ const TooltipTrigger = forwardRef<HTMLButtonElement, TooltipTriggerProps>(
       () => {
         display(triggerBoundary)
       },
-      700,
-      300
+      delayDuration,
+      skipDelayDuration
     )
 
     const handleMouseEnter = () => {

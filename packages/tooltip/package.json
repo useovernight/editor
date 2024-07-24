@@ -7,7 +7,8 @@
     "build": "tsc --build && tsc-alias"
   },
   "exports": {
-    "./components/*": "./dist/components/*.js"
+    "./components/*": "./dist/components/*.js",
+    "./constants/*": "./dist/constants/*.js"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
